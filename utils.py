@@ -48,14 +48,13 @@ class Maze(object):
 
     def can_move(self, x, y):
         return (self.is_on_maze(x, y) and
-                not self.is_visited(x, y) and
                 self.maze[x][y])
 
 
-MOVES = ((-1, 0, 'L'),
+MOVES = ((0, -1, 'T'),
          (1, 0, 'R'),
-         (0, -1, 'T'),
-         (0, 1, 'B'))
+         (0, 1, 'B'),
+         (-1, 0, 'L'))
 
 
 class MazeSolver(object):
@@ -118,12 +117,52 @@ class MazeSolver(object):
                     if result:
                         return result
 
+    def stack_solve(self, maze, x, y):
+        maze.mark_as_visited(x, y)
+        new_position = True
+        stack_changed = False
+        stack = []
+        while new_position or stack_changed:
+            new_position = False
+            stack_changed = False
+            for move in MOVES:
+                xd, yd = move[0], move[1]
+                x1 = x + xd
+                y1 = y + yd
+                # print 'move', move, x1, y1
+                if maze.can_move(x1, y1):
+                    # print 'can move'
+                    # append new move to the stack
+                    stack.append(move)
+                    stack_changed = True
+                    if maze.is_stop(x1, y1):
+                        return ''.join(map(lambda i: i[2], stack))
+                    else:
+                        x, y = x1, y1
+                        maze.mark_as_visited(x, y)
+                        # start from the new position
+                        new_position = True
+                        break
+            # print 'stack\t', map(lambda i: i[2], stack)
+            # backtracking
+            if not new_position and stack:
+                back_move = stack.pop()
+                stack_changed = True
+                x -= back_move[0]
+                y -= back_move[1]
+
     def solve(self):
         html = self.load_maze_html()
         maze = self.parse_maze(html)
+        print '%d x %d' % (len(maze.maze), len(maze.maze[0]))
+        # print repr(maze)
+
         print 'Solution to the maze:'
-        solution = self.rec_solve(maze, maze.start.x, maze.start.y)
+        # solution = self.rec_solve(maze, maze.start.x, maze.start.y)
+        # print solution
+        # maze = self.parse_maze(html)
+        solution = self.stack_solve(maze, maze.start.x, maze.start.y)
         print solution
-        print 'and the md5sum of it:'
+        print 'and the solution\'s url is:'
         md5solution = md5.new(solution).hexdigest()
         print 'http://46.101.159.170/0SQJHQ1G/amaze/solve/%s' % (md5solution,)
