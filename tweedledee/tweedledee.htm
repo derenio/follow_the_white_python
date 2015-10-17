@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="/static/js/jquery-2.1.4.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <link href="/static/css/main.css" rel="stylesheet" media="screen">
+    
+    <link href="/static/css/tweedledee.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<span class="intro" data-toggle="modal" data-target="#infoModal"><img src="/static/img/information.png"></span>
+<div class="modal fade" id="introModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+          <p>
+The world turns back into it's normal state. You notice, that you're outside the woods in
+an unknown area.<br>
+Moving forward down the road you bump into the twins.<br>
+Asked with politeness for the directions, they promise to help you but only if you help them.<br>
+Tweedledee and Tweedledum cannot make their mind about two images.<br>
+Tweedledee says "They're the same!". Tweedledum, on the contrary, "They differ, I assure you!".<br>
+Maybe your sharp eyes can see a difference? Maybe there is another way you can end this dispute?<br>
+</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        
+          <p>
+The world turns back into it's normal state. You notice, that you're outside the woods in
+an unknown area.<br>
+Moving forward down the road you bump into the twins.<br>
+Asked with politeness for the directions, they promise to help you but only if you help them.<br>
+Tweedledee and Tweedledum cannot make their mind about two images.<br>
+Tweedledee says "They're the same!". Tweedledum, on the contrary, "They differ, I assure you!".<br>
+Maybe your sharp eyes can see a difference? Maybe there is another way you can end this dispute?<br>
+</p>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="pixel" by="pixel">
+        <div class="find" sixty-eight="differences">
+            <div class="connect"  the="dots"></div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#messageModal').modal('show');
+        $('.intro').click(function(){
+            $('#introModal').modal('show');
+        })
+    });
+</script>
+</body>
+</html>
