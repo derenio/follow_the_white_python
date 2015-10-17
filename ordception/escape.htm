@@ -1,0 +1,56 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="/static/js/jquery-2.1.4.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <link href="/static/css/main.css" rel="stylesheet" media="screen">
+    
+    <link href="/static/css/escape/escape.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<span class="intro" data-toggle="modal" data-target="#infoModal"><img src="/static/img/information.png"></span>
+<div class="modal fade" id="introModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+          <p>
+The snake run away!<br>
+You wander aimlessly in the trees looking for any hint. Soon you've discovered, that you have no idea, where to go.
+You need to find any clue to escape this horrible place. And all of the sudden you've noticed numbers written
+on the tree. You need to trust it and somehow guess, what does those numbers mean.
+</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <div class="background"></div>
+    <div class="back">
+        <h2>GO TO THE:</h2>
+
+        <h3>[85, 45, 66, 79, 79, 84, 32, 66, 97, 114]</h3>
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#messageModal').modal('show');
+        $('.intro').click(function(){
+            $('#introModal').modal('show');
+        })
+    });
+</script>
+</body>
+</html>
